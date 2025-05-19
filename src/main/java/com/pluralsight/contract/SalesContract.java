@@ -1,6 +1,9 @@
 package com.pluralsight.contract;
 
 public class SalesContract extends Contract {
+    private final double salesTaxAmount = 0.05;
+    private final double recordingFee = 100;
+    private boolean isFinancing;
 
 
 
@@ -18,4 +21,14 @@ public class SalesContract extends Contract {
         monthlyPayment /= 100;
         return monthlyPayment;
     }
+
+    public double getProcessingFee() {
+        if (this.vehicle.getPrice() < 10000)
+            return 295;
+        else {
+            return 495;
+        }
+    }
 }
+// TifFany's Advice
+// -
