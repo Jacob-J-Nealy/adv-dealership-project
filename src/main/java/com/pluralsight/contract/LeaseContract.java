@@ -1,6 +1,6 @@
 package com.pluralsight.contract;
 
-public class LeaseContract {
+public class LeaseContract extends Contract {
 
     @Override
     public double getTotalPrice() {

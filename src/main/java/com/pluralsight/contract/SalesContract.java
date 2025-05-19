@@ -1,6 +1,6 @@
 package com.pluralsight.contract;
 
-public class SalesContract {
+public class SalesContract extends Contract {
 
 
 
