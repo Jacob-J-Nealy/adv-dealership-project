@@ -1,11 +1,25 @@
 package com.pluralsight.contract;
 
+import com.pluralsight.Vehicle;
+
 public class SalesContract extends Contract {
-    private final double salesTaxAmount = 0.05;
-    private final double recordingFee = 100;
+
+    // SalesContract Properties
+    private double salesTaxAmount = 0.05;
+    private double recordingFee = 100;
+    private double processingFee;
     private boolean isFinancing;
 
-
+    // SalesContract Constructor
+    public SalesContract(String date, String name, String email, Vehicle vehicle, double totalPrice,
+                         double monthlyPayment, double salesTaxAmount, double recordingFee,
+                         double processingFee, boolean isFinancing) {
+        super(date, name, email, vehicle, totalPrice, monthlyPayment);
+        this.salesTaxAmount = salesTaxAmount;
+        this.recordingFee = recordingFee;
+        this.processingFee = processingFee;
+        this.isFinancing = isFinancing;
+    }
 
     @Override
     public double getTotalPrice() {
@@ -22,6 +36,7 @@ public class SalesContract extends Contract {
         return monthlyPayment;
     }
 
+    //Getters & Setters
     public double getProcessingFee() {
         if (this.vehicle.getPrice() < 10000)
             return 295;
@@ -29,6 +44,30 @@ public class SalesContract extends Contract {
             return 495;
         }
     }
+    public void setProcessingFee(double processingFee) {
+        this.processingFee = processingFee;
+    }
+
+    public double getSalesTaxAmount() {
+        return salesTaxAmount;
+    }
+    public void setSalesTaxAmount(double salesTaxAmount) {
+        this.salesTaxAmount = salesTaxAmount;
+    }
+
+    public double getRecordingFee() {
+        return recordingFee;
+    }
+    public void setRecordingFee(double recordingFee) {
+        this.recordingFee = recordingFee;
+    }
+
+    public boolean isFinancing() {
+        return isFinancing;
+    }
+    public void setFinancing(boolean financing) {
+        isFinancing = financing;
+    }
 }
-// TifFany's Advice
-// -
+
+
