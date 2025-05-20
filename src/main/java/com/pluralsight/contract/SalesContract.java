@@ -21,6 +21,7 @@ public class SalesContract extends Contract {
         this.isFinancing = isFinancing;
     }
 
+    // Inherited Methods
     @Override
     public double getTotalPrice() {
         return (getVehicleSold().getPrice() - expectedEndingValue) + leaseFee;
