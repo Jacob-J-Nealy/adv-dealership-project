@@ -1,6 +1,7 @@
 package com.pluralsight.contract;
 
 public class LeaseContract extends Contract {
+    expected
 
 
 
