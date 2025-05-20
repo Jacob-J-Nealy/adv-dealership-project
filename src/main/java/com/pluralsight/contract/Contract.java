@@ -9,8 +9,7 @@ public abstract class Contract {
     public String  name;
     public String  email;
     public Vehicle vehicle;
-    public double  totalPrice;
-    public double  monthlyPayment;
+
 
     //Constructor
     public Contract(String date, String name, String email,
@@ -20,13 +19,9 @@ public abstract class Contract {
         this.name = name;
         this.email = email;
         this.vehicle = vehicle;
-        this.totalPrice = totalPrice;
-        this.monthlyPayment = monthlyPayment;
+
     }
 
-    // Constructor: Default
-    public Contract() {
-    }
 
     // Abstract Methods
     public abstract double getTotalPrice();
