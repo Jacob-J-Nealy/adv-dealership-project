@@ -5,16 +5,16 @@ import com.pluralsight.Vehicle;
 public class LeaseContract extends Contract {
 
     // Lease Contract Properties
-    private double expectedEndingValue;
-    private double leaseFee;
+    private final double expectedEndingValue;
+    private final double leaseFee;
 
     // Lease Contract Constructor
     public LeaseContract(String date, String name, String email,
                          Vehicle vehicle, double totalPrice,
-                         double monthlyPayment, double expectedEndingValue, double leaseFee) {
+                         double monthlyPayment) {
         super(date, name, email, vehicle, totalPrice, monthlyPayment);
         this.expectedEndingValue = (vehicle.getPrice() / 2);
-        this.leaseFee = leaseFee;
+        this.leaseFee = vehicle.getPrice() * 0.07;
     }
 
     // Inherited Methods
