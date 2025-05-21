@@ -4,7 +4,7 @@ import com.pluralsight.Vehicle;
 
 public class SalesContract extends Contract {
 
-    // SalesContract Properties
+    // Sales Contract Properties
     private double salesTaxAmount;
     private double recordingFee = 100;
     private double processingFee;

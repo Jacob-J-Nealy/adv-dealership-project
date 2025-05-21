@@ -1,7 +1,11 @@
 package com.pluralsight.contract;
 
 public class LeaseContract extends Contract {
-    expected
+
+    // Lease Contract Properties
+    private double expectedEndingValue;
+    private double leaseFee;
+
 
 
 
