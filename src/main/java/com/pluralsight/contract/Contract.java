@@ -19,7 +19,6 @@ public abstract class Contract {
         this.name = name;
         this.email = email;
         this.vehicle = vehicle;
-
     }
 
 
