@@ -21,29 +21,26 @@ public class LeaseContract extends Contract {
     @Override
     public String toString() {
 
-        StringBuilder salesContractBuilder = new StringBuilder();
-        Vehicle stringVehicle = getVehicleSold();
+        StringBuilder leaseContractBuilder = new StringBuilder();
+        Vehicle vehicle = getVehicleSold();
+        leaseContractBuilder.append("LEASE").append("|");
+        leaseContractBuilder.append(date).append("|");
+        leaseContractBuilder.append(name).append("|");
+        leaseContractBuilder.append(email).append("|");
+        leaseContractBuilder.append(vehicle.getVin()).append("|");
+        leaseContractBuilder.append(vehicle.getYear()).append("|");
+        leaseContractBuilder.append(vehicle.getMake()).append("|");
+        leaseContractBuilder.append(vehicle.getModel()).append("|");
+        leaseContractBuilder.append(vehicle.getVehicleType()).append("|");
+        leaseContractBuilder.append(vehicle.getColor()).append("|");
+        leaseContractBuilder.append(vehicle.getOdometer()).append("|");
+        leaseContractBuilder.append(vehicle.getPrice()).append("|");
+        leaseContractBuilder.append(expectedEndingValue).append("|");
+        leaseContractBuilder.append(leaseFee).append("|");
+        leaseContractBuilder.append(getTotalPrice()).append("|");
+        leaseContractBuilder.append(getMonthlyPayment());
 
-        salesContractBuilder.append("L").append("|");
-        salesContractBuilder.append(date).append("|");
-        salesContractBuilder.append(name).append("|");
-        salesContractBuilder.append(email).append("|");
-        salesContractBuilder.append(stringVehicle.getVin()).append("|");
-        salesContractBuilder.append(stringVehicle.getYear()).append("|");
-        salesContractBuilder.append(stringVehicle.getMake()).append("|");
-        salesContractBuilder.append(stringVehicle.getModel()).append("|");
-        salesContractBuilder.append(stringVehicle.getVehicleType()).append("|");
-        salesContractBuilder.append(stringVehicle.getColor()).append("|");
-        salesContractBuilder.append(stringVehicle.getOdometer()).append("|");
-        salesContractBuilder.append(stringVehicle.getPrice()).append("|");
-        salesContractBuilder.append(salesTaxAmount).append("|");
-        salesContractBuilder.append(recordingFee).append("|");
-        salesContractBuilder.append(processingFee).append("|");
-        salesContractBuilder.append(getTotalPrice()).append("|");
-        salesContractBuilder.append(isFinancing).append("|");
-        salesContractBuilder.append(getMonthlyPayment());
-
-        return salesContractBuilder.toString();
+        return leaseContractBuilder.toString();
     }
 
     // Lease Contract Inherited Methods

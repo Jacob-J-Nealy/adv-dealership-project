@@ -28,20 +28,20 @@ public class SalesContract extends Contract {
     public String toString() {
 
         StringBuilder salesContractBuilder = new StringBuilder();
-        Vehicle stringVehicle = getVehicleSold();
+        Vehicle vehicle = getVehicleSold();
 
         salesContractBuilder.append("SALE").append("|");
         salesContractBuilder.append(date).append("|");
         salesContractBuilder.append(name).append("|");
         salesContractBuilder.append(email).append("|");
-        salesContractBuilder.append(stringVehicle.getVin()).append("|");
-        salesContractBuilder.append(stringVehicle.getYear()).append("|");
-        salesContractBuilder.append(stringVehicle.getMake()).append("|");
-        salesContractBuilder.append(stringVehicle.getModel()).append("|");
-        salesContractBuilder.append(stringVehicle.getVehicleType()).append("|");
-        salesContractBuilder.append(stringVehicle.getColor()).append("|");
-        salesContractBuilder.append(stringVehicle.getOdometer()).append("|");
-        salesContractBuilder.append(stringVehicle.getPrice()).append("|");
+        salesContractBuilder.append(vehicle.getVin()).append("|");
+        salesContractBuilder.append(vehicle.getYear()).append("|");
+        salesContractBuilder.append(vehicle.getMake()).append("|");
+        salesContractBuilder.append(vehicle.getModel()).append("|");
+        salesContractBuilder.append(vehicle.getVehicleType()).append("|");
+        salesContractBuilder.append(vehicle.getColor()).append("|");
+        salesContractBuilder.append(vehicle.getOdometer()).append("|");
+        salesContractBuilder.append(vehicle.getPrice()).append("|");
         salesContractBuilder.append(salesTaxAmount).append("|");
         salesContractBuilder.append(recordingFee).append("|");
         salesContractBuilder.append(processingFee).append("|");
