@@ -51,7 +51,7 @@ public abstract class Contract {
         this.email = email;
     }
 
-    public Vehicle getVehicle() {
+    public Vehicle getVehicleSold() {
         return vehicle;
     }
     public void setVehicle(Vehicle vehicle) {

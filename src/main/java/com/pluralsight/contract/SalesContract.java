@@ -23,29 +23,33 @@ public class SalesContract extends Contract {
         this.isFinancing = isFinancing;
     }
 
+    // Sales Contract toString
     @Override
     public String toString() {
+
         StringBuilder salesContractBuilder = new StringBuilder();
-        // Type|contract date|name|email|car id|year|make|model|vehicle type|color|odometer|price|sales tax|recording fee|processing fee|total cost|finance|monthly payment
-        salesContractBuilder.append("SALE");
-        salesContractBuilder.append("|");
-        salesContractBuilder.append(date);
-        salesContractBuilder.append("|");
-        salesContractBuilder.append(name);
-        salesContractBuilder.append("|");
-        salesContractBuilder.append(email);
-        salesContractBuilder.append("|");
-        salesContractBuilder.append();
-//        return "SalesContract{" +
-//                "salesTaxAmount=" + salesTaxAmount +
-//                ", recordingFee=" + recordingFee +
-//                ", processingFee=" + processingFee +
-//                ", isFinancing=" + isFinancing +
-//                ", date='" + date + '\'' +
-//                ", name='" + name + '\'' +
-//                ", email='" + email + '\'' +
-//                ", vehicle=" + vehicle +
-//                '}';
+        Vehicle stringVehicle = getVehicleSold();
+
+        salesContractBuilder.append("SALE").append("|");
+        salesContractBuilder.append(date).append("|");
+        salesContractBuilder.append(name).append("|");
+        salesContractBuilder.append(email).append("|");
+        salesContractBuilder.append(stringVehicle.getVin()).append("|");
+        salesContractBuilder.append(stringVehicle.getYear()).append("|");
+        salesContractBuilder.append(stringVehicle.getMake()).append("|");
+        salesContractBuilder.append(stringVehicle.getModel()).append("|");
+        salesContractBuilder.append(stringVehicle.getVehicleType()).append("|");
+        salesContractBuilder.append(stringVehicle.getColor()).append("|");
+        salesContractBuilder.append(stringVehicle.getOdometer()).append("|");
+        salesContractBuilder.append(stringVehicle.getPrice()).append("|");
+        salesContractBuilder.append(salesTaxAmount).append("|");
+        salesContractBuilder.append(recordingFee).append("|");
+        salesContractBuilder.append(processingFee).append("|");
+        salesContractBuilder.append(getTotalPrice()).append("|");
+        salesContractBuilder.append(isFinancing).append("|");
+        salesContractBuilder.append(getMonthlyPayment());
+
+        return salesContractBuilder.toString();
     }
 
     // Sales Contract Inherited Methods
