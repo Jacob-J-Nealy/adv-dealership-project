@@ -29,7 +29,13 @@ public class SalesContract extends Contract {
         // Type|contract date|name|email|car id|year|make|model|vehicle type|color|odometer|price|sales tax|recording fee|processing fee|total cost|finance|monthly payment
         salesContractBuilder.append("SALE");
         salesContractBuilder.append("|");
-        salesContractBuilder.append("");
+        salesContractBuilder.append(date);
+        salesContractBuilder.append("|");
+        salesContractBuilder.append(name);
+        salesContractBuilder.append("|");
+        salesContractBuilder.append(email);
+        salesContractBuilder.append("|");
+        salesContractBuilder.append();
 //        return "SalesContract{" +
 //                "salesTaxAmount=" + salesTaxAmount +
 //                ", recordingFee=" + recordingFee +
