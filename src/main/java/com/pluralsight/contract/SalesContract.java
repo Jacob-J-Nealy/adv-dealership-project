@@ -10,7 +10,7 @@ public class SalesContract extends Contract {
     private double processingFee;
     private boolean isFinancing;
 
-    // SalesContract Constructor
+    // Sales Contract Constructor
     public SalesContract(String date, String name, String email, Vehicle vehicle, double totalPrice,
                          double monthlyPayment, boolean isFinancing) {
         super(date, name, email, vehicle, totalPrice, monthlyPayment);

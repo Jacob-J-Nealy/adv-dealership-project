@@ -1,14 +1,22 @@
 package com.pluralsight.contract;
 
+import com.pluralsight.Vehicle;
+
 public class LeaseContract extends Contract {
 
     // Lease Contract Properties
     private double expectedEndingValue;
     private double leaseFee;
 
+    // Lease Contract Constructor
+    public LeaseContract(String date, String name, String email,
+                         Vehicle vehicle, double totalPrice,
+                         double monthlyPayment, double expectedEndingValue, double leaseFee) {
+        super(date, name, email, vehicle, totalPrice, monthlyPayment);
+        this.expectedEndingValue = (vehicle.getPrice() / 2);
+        this.leaseFee = leaseFee;
+    }
 
-
-    
     // Inherited Methods
     @Override
     public double getTotalPrice() {
