@@ -8,11 +8,17 @@ public class ContractDataManager {
     private void saveContract(Contract contract) {
 
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("contract.csv"));
+            // Writes New Contracts to CSV File
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("contracts.csv", true));
+            bufferedWriter.write(contract.toString());
+            bufferedWriter.newLine();
+
+            // Closes bufferedWriter
+            bufferedWriter.flush();
+            bufferedWriter.close();
 
         } catch (Exception e) {
             System.err.println("Could Not Store Contract");
         }
-
     }
 }
