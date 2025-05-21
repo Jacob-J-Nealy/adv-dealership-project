@@ -23,7 +23,7 @@ public class SalesContract extends Contract {
         this.isFinancing = isFinancing;
     }
 
-    // Inherited Methods
+    // Sales Contract Inherited Methods
     @Override
     public double getTotalPrice() {
         return getVehicleSold().getPrice() + salesTaxAmount + recordingFee + processingFee;
@@ -51,7 +51,7 @@ public class SalesContract extends Contract {
         }
     }
 
-    //Getters & Setters
+    // Sales Contract Getters & Setters
     public double getProcessingFee() {
         return processingFee;
     }
