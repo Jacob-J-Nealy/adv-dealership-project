@@ -17,6 +17,35 @@ public class LeaseContract extends Contract {
         this.leaseFee = vehicle.getPrice() * 0.07;
     }
 
+    // Vehicle Contract toString
+    @Override
+    public String toString() {
+
+        StringBuilder salesContractBuilder = new StringBuilder();
+        Vehicle stringVehicle = getVehicleSold();
+
+        salesContractBuilder.append("L").append("|");
+        salesContractBuilder.append(date).append("|");
+        salesContractBuilder.append(name).append("|");
+        salesContractBuilder.append(email).append("|");
+        salesContractBuilder.append(stringVehicle.getVin()).append("|");
+        salesContractBuilder.append(stringVehicle.getYear()).append("|");
+        salesContractBuilder.append(stringVehicle.getMake()).append("|");
+        salesContractBuilder.append(stringVehicle.getModel()).append("|");
+        salesContractBuilder.append(stringVehicle.getVehicleType()).append("|");
+        salesContractBuilder.append(stringVehicle.getColor()).append("|");
+        salesContractBuilder.append(stringVehicle.getOdometer()).append("|");
+        salesContractBuilder.append(stringVehicle.getPrice()).append("|");
+        salesContractBuilder.append(salesTaxAmount).append("|");
+        salesContractBuilder.append(recordingFee).append("|");
+        salesContractBuilder.append(processingFee).append("|");
+        salesContractBuilder.append(getTotalPrice()).append("|");
+        salesContractBuilder.append(isFinancing).append("|");
+        salesContractBuilder.append(getMonthlyPayment());
+
+        return salesContractBuilder.toString();
+    }
+
     // Lease Contract Inherited Methods
     @Override
     public double getTotalPrice() {
