@@ -4,7 +4,7 @@ import com.pluralsight.Vehicle;
 
 public class LeaseContract extends Contract {
 
-    // Lease Contract Properties
+    // Lease Contract Properties (using final so values do not change)
     private final double expectedEndingValue;
     private final double leaseFee;
 
