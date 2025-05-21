@@ -9,6 +9,7 @@ public class ContractDataManager {
 
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("contract.csv"));
+
         } catch (Exception e) {
             System.err.println("Could Not Store Contract");
         }

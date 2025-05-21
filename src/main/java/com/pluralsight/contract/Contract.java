@@ -4,14 +4,14 @@ import com.pluralsight.Vehicle;
 
 public abstract class Contract {
 
-    // Attributes
+    // Contract Attributes
     public String  date;
     public String  name;
     public String  email;
     public Vehicle vehicle;
 
 
-    //Constructor
+    // Contract Constructor
     public Contract(String date, String name, String email,
                     Vehicle vehicle, double totalPrice,
                     double monthlyPayment) {
@@ -21,8 +21,10 @@ public abstract class Contract {
         this.vehicle = vehicle;
     }
 
+    // Contract Abstract toString
+    public abstract String toString();
 
-    // Abstract Methods
+    // Constract Abstract Methods
     public abstract double getTotalPrice();
 
     public abstract double getMonthlyPayment();
