@@ -182,6 +182,9 @@ public class UserInterface {
                 dealership.removeVehicle(vehicle);
                 System.out.println("Vehicle removed successfully!");
                 vehicleRemoved = true;
+
+                DealershipFileManager fileManager = new DealershipFileManager();
+                fileManager.saveDealership(dealership);
                 break;
             }
         }
@@ -190,9 +193,6 @@ public class UserInterface {
             System.out.println("Vehicle not found. Please try again.");
             return;
         }
-
-        DealershipFileManager manager = new DealershipFileManager();
-        manager.saveDealership(dealership);
     }
 
     public void processContract() {
@@ -200,7 +200,7 @@ public class UserInterface {
         // Displays Vehicle Inventory for User
         System.out.println("Vehicle Inventory");
         System.out.println("________________________________________________________________________");
-        for (Vehicle vehicles : dealership.getAllVehicles() ) {
+        for (Vehicle vehicles : dealership.getAllVehicles()) {
             System.out.println(vehicles);
 
         }
@@ -244,33 +244,60 @@ public class UserInterface {
         System.out.println("L - Lease Vehicle");
         String contractOption = scanner.nextLine();
 
+        boolean isSaved = false;
         switch (contractOption.toUpperCase()) {
             case "B":
                 System.out.println("Would you like to Finance your Vehicle? (Y/N)");
                 String choice = scanner.nextLine();
                 boolean wantsToFinance = choice.equalsIgnoreCase("Y");
 
-                Contract newContract = new SalesContract(formattedDate, name, email, selectedVehicle, wantsToFinance);
-
-                ContractDataManager manager = new ContractDataManager();
-                manager.saveContract(newContract);
+                Contract salesContract = new SalesContract(formattedDate, name, email, selectedVehicle, wantsToFinance);
+                ContractDataManager contractManager = new ContractDataManager();
+                contractManager.saveContract(salesContract);
+                isSaved = true;
                 break;
             case "L":
-                
+                int currentYear = LocalDateTime.now().getYear();
+                int age = currentYear - selectedVehicle.getYear();
+                if (age > 3) {
+                    System.err.println("Vehicle is too Old");
+                    return;
+                } else {
+
+                    Contract leaseContract = new LeaseContract(formattedDate, name, email, selectedVehicle);
+                    ContractDataManager leaseManager = new ContractDataManager();
+                    leaseManager.saveContract(leaseContract);
+                    isSaved = true;
+                }
+                break;
+
+        }
+        if (isSaved) {
+            System.out.println("Successfully Saved");
         }
 
-
+        boolean vehicleRemoved = false;
+        for (Vehicle vehicle : dealership.getAllVehicles()) {
+            if (vehicle.getVin() == vin) {
+                dealership.removeVehicle(vehicle);
+                System.out.println("Vehicle removed successfully!");
+                vehicleRemoved = true;
+                break;
+            }
+        }
+        DealershipFileManager manager = new DealershipFileManager();
+        manager.saveDealership(dealership);
     }
 
     private void init() {
-        DealershipFileManager manager = new DealershipFileManager();
-        dealership = manager.getDealership();
-    }
-
-    private void displayVehicles(List<Vehicle> vehicles) {
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle.toString());
+            DealershipFileManager manager = new DealershipFileManager();
+            dealership = manager.getDealership();
         }
-    }
+
+        private void displayVehicles (List < Vehicle > vehicles) {
+            for (Vehicle vehicle : vehicles) {
+                System.out.println(vehicle.toString());
+            }
+        }
 
 }
