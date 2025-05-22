@@ -192,11 +192,33 @@ public class UserInterface {
 
     public void processContract() {
 
-        System.out.println("----------Vehicle Inventory----------");
+        // Displays Vehicle Inventory for User
+        System.out.println("Vehicle Inventory");
+        System.out.println("________________________________________________________________________");
         for (Vehicle vehicles : dealership.getAllVehicles() ) {
             System.out.println(vehicles);
 
         }
+        System.out.print("Please Enter VIN Number of  Selected Vehicle: ");
+        int vin = scanner.nextInt();
+        scanner.nextLine(); // scanner eater
+
+        for (Vehicle foundvehicle : dealership.getAllVehicles()) {
+            if Vehicle.;
+        }
+
+        System.out.println("\nWould you like to Buy or Lease a Vehicle?");
+        System.out.println("B - Buy Vehicle");
+        System.out.println("L - Lease Vehicle");
+        String contractOption = scanner.nextLine();
+
+        switch (contractOption.toUpperCase()) {
+            case "B":
+
+                break;
+        }
+
+        // Saves Local Time for Contract
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         String formattedDate = LocalDateTime.now().format(formatter);
