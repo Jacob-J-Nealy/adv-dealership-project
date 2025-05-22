@@ -1,5 +1,10 @@
 package com.pluralsight;
 
+import com.pluralsight.contract.Contract;
+import com.pluralsight.contract.ContractDataManager;
+import com.pluralsight.contract.LeaseContract;
+import com.pluralsight.contract.SalesContract;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -199,12 +204,39 @@ public class UserInterface {
             System.out.println(vehicles);
 
         }
+
+        // Saves Local Time for Contract
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String formattedDate = LocalDateTime.now().format(formatter);
+
+        // Saves First and Last Name
+        System.out.print("Please enter First & Last Name:  ");
+        String name = scanner.nextLine();
+
+        // Saves Email
+        System.out.print("Please Enter your Email: ");
+        String email = scanner.nextLine();
+
+        // Matches VIN Number to Vehicle
         System.out.print("Please Enter VIN Number of  Selected Vehicle: ");
         int vin = scanner.nextInt();
         scanner.nextLine(); // scanner eater
 
+        Vehicle selectedVehicle = null;
+
+
         for (Vehicle foundvehicle : dealership.getAllVehicles()) {
-            if Vehicle.;
+            if (foundvehicle.getVin() == vin) {
+                System.out.println(foundvehicle);
+                selectedVehicle = foundvehicle;
+            }
+        }
+
+        if (selectedVehicle == null) {
+            System.out.println("No vehicle with that VIN was found.");
+
+            return;
         }
 
         System.out.println("\nWould you like to Buy or Lease a Vehicle?");
@@ -214,20 +246,20 @@ public class UserInterface {
 
         switch (contractOption.toUpperCase()) {
             case "B":
+                System.out.println("Would you like to Finance your Vehicle? (Y/N)");
+                String choice = scanner.nextLine();
+                boolean wantsToFinance = choice.equalsIgnoreCase("Y");
 
+                Contract newContract = new SalesContract(formattedDate, name, email, selectedVehicle, wantsToFinance);
+
+                ContractDataManager manager = new ContractDataManager();
+                manager.saveContract(newContract);
                 break;
+            case "L":
+                
         }
 
-        // Saves Local Time for Contract
-        LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-        String formattedDate = LocalDateTime.now().format(formatter);
 
-        System.out.print("Please enter First & Last Name:  ");
-        String name = scanner.nextLine();
-
-        System.out.print("Please Enter your Email: ");
-        String email = scanner.nextLine();
     }
 
     private void init() {

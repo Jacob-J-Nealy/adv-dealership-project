@@ -5,7 +5,7 @@ import java.io.FileWriter;
 
 public class ContractDataManager {
 
-    private void saveContract(Contract contract) {
+    public void saveContract(Contract contract) {
 
         try {
             // Writes New Contracts to CSV File

@@ -13,8 +13,7 @@ public abstract class Contract {
 
     // Contract Constructor
     public Contract(String date, String name, String email,
-                    Vehicle vehicle, double totalPrice,
-                    double monthlyPayment) {
+                    Vehicle vehicle) {
         this.date = date;
         this.name = name;
         this.email = email;

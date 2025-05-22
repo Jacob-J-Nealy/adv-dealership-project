@@ -10,9 +10,8 @@ public class LeaseContract extends Contract {
 
     // Lease Contract Constructor
     public LeaseContract(String date, String name, String email,
-                         Vehicle vehicle, double totalPrice,
-                         double monthlyPayment) {
-        super(date, name, email, vehicle, totalPrice, monthlyPayment);
+                         Vehicle vehicle) {
+        super(date, name, email, vehicle);
         this.expectedEndingValue = (vehicle.getPrice() / 2);
         this.leaseFee = vehicle.getPrice() * 0.07;
     }

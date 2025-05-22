@@ -11,9 +11,8 @@ public class SalesContract extends Contract {
     private boolean isFinancing;
 
     // Sales Contract Constructor
-    public SalesContract(String date, String name, String email, Vehicle vehicle, double totalPrice,
-                         double monthlyPayment, boolean isFinancing) {
-        super(date, name, email, vehicle, totalPrice, monthlyPayment);
+    public SalesContract(String date, String name, String email, Vehicle vehicle, boolean isFinancing) {
+        super(date, name, email, vehicle);
         if (this.vehicle.getPrice() < 10000) {
             this.processingFee = 295;
         } else {
