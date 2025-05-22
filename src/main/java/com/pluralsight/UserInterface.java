@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -191,9 +192,20 @@ public class UserInterface {
 
     public void processContract() {
 
+        System.out.println("----------Vehicle Inventory----------");
+        for (Vehicle vehicles : dealership.getAllVehicles() ) {
+            System.out.println(vehicles);
+
+        }
         LocalDateTime date = LocalDateTime.now();
-        String formattedDate
-        System.out.println("What is your ");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String formattedDate = LocalDateTime.now().format(formatter);
+
+        System.out.print("Please enter First & Last Name:  ");
+        String name = scanner.nextLine();
+
+        System.out.print("Please Enter your Email: ");
+        String email = scanner.nextLine();
     }
 
     private void init() {
