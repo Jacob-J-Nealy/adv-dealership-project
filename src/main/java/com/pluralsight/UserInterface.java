@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -189,7 +190,10 @@ public class UserInterface {
     }
 
     public void processContract() {
-        
+
+        LocalDateTime date = LocalDateTime.now();
+        String formattedDate
+        System.out.println("What is your ");
     }
 
     private void init() {
